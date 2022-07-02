@@ -1,0 +1,32 @@
+{
+    "name": "kayges/hexagon",
+    "description": "Hexagonal architecture support module",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/kayges/hexagon/issues",
+        "source": "https://github.com/kayges/hexagon"
+    },
+    "keywords": ["laravel", "design-pattern"],
+    "authors": [{
+        "name": "Kalesh Kaladharan",
+        "email": "kalesh.13@gmail.com"
+    }],
+    "require": {
+        "php": ">=7.1",
+        "illuminate/support": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kayges\\Hexagon\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
