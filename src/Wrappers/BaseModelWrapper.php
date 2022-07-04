@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Modules\Abstracts\Wrappers;
+namespace Karpack\Hexagon\Wrappers;
 
-use JsonSerializable;
-use Illuminate\Support\Str;
-use InvalidArgumentException;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Support\Arrayable;
-use App\Modules\Abstracts\Wrappers\Contracts\ModelWrapper;
-use Illuminate\Queue\SerializesAndRestoresModelIdentifiers;
 use ReflectionClass;
+use JsonSerializable;
+use InvalidArgumentException;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Queue\SerializesAndRestoresModelIdentifiers;
+use Illuminate\Support\Str;
+use Karpack\Contracts\Hexagon\Wrappers\ModelWrapper;
 
 class BaseModelWrapper implements ModelWrapper, Arrayable, JsonSerializable
 {
     use SerializesAndRestoresModelIdentifiers;
 
-    /**
+     /**
      * The model on which this wrapper operates.
      * 
      * @var \Illuminate\Database\Eloquent\Model
@@ -175,7 +175,7 @@ class BaseModelWrapper implements ModelWrapper, Arrayable, JsonSerializable
         // We'll create a clone of this wrapper without any sorts of initialization.
         // This way, we can just inject necessary services to the wrapper and everything
         // else can be the default value.
-        $clone = app()->make(static::class, ['model' => $this->model]);
+        $clone = container()->make(static::class, ['model' => $this->model]);
 
         foreach ((new ReflectionClass($clone))->getProperties() as $property) {
             if ($property->isStatic()) {

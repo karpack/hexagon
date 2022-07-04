@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Modules\Abstracts\Wrappers;
+namespace Karpack\Hexagon\Wrappers;
 
 use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use App\Modules\Abstracts\Contracts\ValidatesModel;
-use App\Modules\Abstracts\Wrappers\Contracts\Updateable;
+use Illuminate\Support\Facades\Validator;
+use Karpack\Contracts\Hexagon\Wrappers\Updateable;
+use Karpack\Contracts\Hexagon\Wrappers\ValidatesModel;
 
 abstract class SimpleModelWrapper extends BaseModelWrapper implements Updateable, ValidatesModel
 {
@@ -39,7 +40,7 @@ abstract class SimpleModelWrapper extends BaseModelWrapper implements Updateable
      */
     public function validate(Collection $data, $model = null)
     {
-        validator($data->all(), $this->validationRules($model))->validate();
+        Validator::make($data->all(), $this->validationRules($model))->validate();
 
         return $this;
     }
@@ -73,7 +74,8 @@ abstract class SimpleModelWrapper extends BaseModelWrapper implements Updateable
         $data = $data->filter(function ($item, $key) use ($supportedFields) {
             return in_array($key, $supportedFields);
         });
-        validator(
+
+        Validator::make(
             $data->all(),
             Arr::only($this->validationRules($this->model()), $data->keys()->all())
         )->validate();
