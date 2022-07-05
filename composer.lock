@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f762c6577f90f15e1dd934f4b002d102",
+    "content-hash": "afbfc5f5f48fac39c8afcedb0dba6c58",
     "packages": [
         {
             "name": "brick/math",
@@ -670,6 +670,64 @@
                 "source": "https://github.com/karpack/contracts"
             },
             "time": "2022-07-04T06:16:07+00:00"
+        },
+        {
+            "name": "karpack/support",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/karpack/support.git",
+                "reference": "136de10a620216172932d02f06c70fadf97f3810"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/karpack/support/zipball/136de10a620216172932d02f06c70fadf97f3810",
+                "reference": "136de10a620216172932d02f06c70fadf97f3810",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": ">=7.0",
+                "illuminate/database": ">=7.0",
+                "illuminate/support": ">=7.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Karpack\\Support\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kalesh Kaladharan",
+                    "email": "kalesh.13@gmail.com"
+                }
+            ],
+            "description": "Common support module",
+            "keywords": [
+                "laravel",
+                "support"
+            ],
+            "support": {
+                "issues": "https://github.com/karpack/support/issues",
+                "source": "https://github.com/karpack/support"
+            },
+            "time": "2022-07-04T11:15:38+00:00"
         },
         {
             "name": "nesbot/carbon",
