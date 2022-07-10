@@ -4,7 +4,6 @@ namespace Karpack\Hexagon\Services;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\App;
 use Karpack\Contracts\Hexagon\Services\ResolvesMultipleServices;
 use Karpack\Contracts\Hexagon\Services\ServiceResolver;
 
@@ -48,7 +47,7 @@ class ModelServiceResolver implements ServiceResolver
      * Returns the service that is tied to the given model.
      * 
      * @param \Illuminate\Database\Eloquent\Model|string $model
-     * @return \App\Modules\Abstracts\Services\ModelWrapperService
+     * @return \Karpack\Hexagon\Services\ModelWrapperService
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function resolve($model)

@@ -35,7 +35,7 @@ abstract class SimpleModelWrapper extends BaseModelWrapper implements Updateable
      * 
      * @param \Illuminate\Support\Collection $data
      * @param \Illuminate\Database\Eloquent\Model|null $model
-     * @return \App\Modules\Abstracts\Wrappers\Contracts\Updateable
+     * @return $this
      * @throws \Illuminate\Validation\ValidationException
      */
     public function validate(Collection $data, $model = null)
@@ -49,7 +49,7 @@ abstract class SimpleModelWrapper extends BaseModelWrapper implements Updateable
      * Sets the given attribute with the value from collection if it exists.
      * 
      * @param \Illuminate\Support\Collection $data
-     * @return static
+     * @return $this
      */
     protected function setOptionalField(Collection $data, $attributeName, $keyInData = null)
     {
@@ -85,6 +85,7 @@ abstract class SimpleModelWrapper extends BaseModelWrapper implements Updateable
         $data->each(function ($value, $key) use ($fieldSetter) {
             $fieldSetter($value, $key, $this->model);
         });
+
         return $this->save();
     }
 
@@ -102,7 +103,7 @@ abstract class SimpleModelWrapper extends BaseModelWrapper implements Updateable
      * Sets a new field setter on the wrapper which will be used for seting fields on the model.
      *  
      * @param \callable $fieldSetter
-     * @return static
+     * @return $this
      */
     public function setFieldSetter($fieldSetter)
     {
